@@ -5,22 +5,28 @@
     <!-- <img :src="new URL(item.imgUrl, import.meta.url).href" alt=""> -->
     <h2>{{ getMsg }}</h2>
     <h2>{{ getPokemons }}</h2>
+
   </section>
 </template>
 
 <script>
 export default {
   name: 'app-home',
+  created() {
+    this.$store.dispatch('loadPokemons')
+  },
   computed: {
     getMsg() {
       return this.$store.getters.getMsg
     },
-    getPokemons(){
+    getPokemons() {
       return this.$store.getters.getPokemons
     }
   },
-  methods:{
-
+  methods: {
+    async loadPokemons() {
+      await this.$store.dispatch('loadPokemons')
+    }
   }
 }
 </script>
