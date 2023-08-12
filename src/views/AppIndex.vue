@@ -18,7 +18,7 @@ export default {
     appFilter,
   },
   created() {
-    this.$store.dispatch({ type: 'loadItems' })
+    // this.$store.dispatch({ type: 'loadItems' })
   },
 
   computed: {
