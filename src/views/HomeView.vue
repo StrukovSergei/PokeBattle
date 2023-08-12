@@ -4,6 +4,7 @@
     <p>Open your console!</p>
     <!-- <img :src="new URL(item.imgUrl, import.meta.url).href" alt=""> -->
     <h2>{{ getMsg }}</h2>
+    <h2>{{ getPokemons }}</h2>
   </section>
 </template>
 
@@ -14,6 +15,12 @@ export default {
     getMsg() {
       return this.$store.getters.getMsg
     },
+    getPokemons(){
+      return this.$store.getters.getPokemons
+    }
   },
+  methods:{
+
+  }
 }
 </script>

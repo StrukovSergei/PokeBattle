@@ -1,15 +1,16 @@
 import { createStore } from 'vuex'
-import { itemService } from '../services/item.service'
+import { pokeService } from '../services/poke.service'
+// import { itemService } from '../services/item.service'
 // Create a new store instance.
 export const store = createStore({
   state: {
     msg: 'store is connected',
     filterBy: null,
-    items: null,
+    pokemons: null,
   },
   getters: {
-    getItems(state) {
-      return state.items
+    getPokemons(state) {
+      return state.pokemons
     },
     getFilter(state) {
       return state.filterBy
@@ -22,15 +23,15 @@ export const store = createStore({
     setFilter(state, { filter }) {
       state.filterBy = { ...filter }
     },
-    setItems(state, { items }) {
-      state.items = items
+    setPokemons(state, { pokemons }) {
+      state.pokemons = pokemons
     },
   },
   actions: {
-    async loadItems({ commit, state, }) {
-      const items = await itemService.query(state.filterBy)
-      console.log('items:', items)
-      commit({ type: 'setItems', items })
+    async loadPokemons({ commit, state, }) {
+      // const items = await itemService.query(state.filterBy)
+      const pokemons = await pokeService.query(state.filterBy)
+      commit({ type: 'setPokemons', pokemons })
     },
   },
   modules: {},
