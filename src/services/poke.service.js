@@ -10,7 +10,7 @@ window.pokeService = pokeService
 
 async function query() {
     try {
-        const randomPokemonIds = utilService.generateRandomNumbers(6, 0, 1200)
+        const randomPokemonIds = utilService.generateRandomNumbers(6, 0, 1010)
         const pokemonPromises = randomPokemonIds.map(async (id) => {
             const apiUrl = `https://pokeapi.co/api/v2/pokemon/${id}/?limit=20&offset=20`
             const response = await Axios.get(apiUrl)
@@ -21,6 +21,7 @@ async function query() {
         const pokemons = await Promise.all(pokemonPromises)
         return pokemons.map(pokemon => ({
             name: pokemon.name,
+            hp: pokemon.stats[0].base_stat
             // You can map other properties you want from the Pokemon data
         }))
     } catch (err) {
