@@ -22,7 +22,6 @@ async function query() {
         return pokemons.map(pokemon => ({
             name: pokemon.name,
             hp: pokemon.stats[0].base_stat
-            // You can map other properties you want from the Pokemon data
         }))
     } catch (err) {
         console.error('Cannot fetch Pokémon data', err)
