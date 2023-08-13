@@ -21,6 +21,8 @@ export default {
     // this.$store.dispatch({ type: 'loadItems' })
   },
 
+
+  
   computed: {
     items() {
       const filterBy = this.$store.getters.getFilter
