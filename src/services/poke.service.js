@@ -1,4 +1,4 @@
-import {utilService} from '../services/util.service'
+import { utilService } from '../services/util.service'
 import Axios from 'axios'
 
 export const pokeService = {
@@ -33,7 +33,8 @@ async function query() {
                 name: pokemonData.name,
                 hp: pokemonData.stats.find(stat => stat.stat.name === 'hp').base_stat,
                 moves: moveResults,
-                sprite: pokemonData.sprites.front_default
+                sprite: pokemonData.sprites.front_default,
+                _id: pokemonData.id
             }
         })
 

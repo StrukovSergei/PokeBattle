@@ -1,6 +1,6 @@
 <template>
   <section>
-    <app-filter></app-filter>
+    <!-- <app-filter></app-filter> -->
     <h1>app</h1>
     <pokemons-list :pokemons="pokemons" />
   </section>
@@ -25,14 +25,15 @@ export default {
 
 
   computed: {
-    items() {
+    pokemons() {
       // const filterBy = this.$store.getters.getFilter
       // let items = this.$store.getters.getItems
       // console.log(filterBy)
       // if (!filterBy) return items
       // const regex = new RegExp(filterBy.txt, 'i')
       // return items.filter((item) => regex.test(item.content))
-      return this.$store.getters.getPokemons
+      let pokemons = this.$store.getters.getPokemons
+      return pokemons
     },
   },
 }
