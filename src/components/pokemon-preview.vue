@@ -1,8 +1,8 @@
 <template>
-  <section class="item-preview">
-    {{ pokemon.name }}
-    {{ pokemon.type }}
-    <img :src="getImg" alt="">
+  <section class="pokemon-preview">
+    <div class="poke-sprite"><img :src="getImg" alt=""></div>
+    <div class="poke-name">{{ pokemon.name }}</div>
+    <div class="poke-class">{{ getTypes }}</div>
   </section>
 </template>
 
@@ -15,6 +15,9 @@ export default {
   computed: {
     getImg() {
       return this.pokemon.sprite
+    },
+    getTypes() {
+      return this.pokemon.type.join(', ')
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <section class="items-list">
+  <section class="pokemons-list flex text-center">
     <pokemon-preview v-for="pokemon in pokemons" :key="pokemon._id" :pokemon="pokemon" />
   </section>
 </template>
