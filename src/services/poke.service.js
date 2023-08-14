@@ -34,7 +34,8 @@ async function query() {
                 hp: pokemonData.stats.find(stat => stat.stat.name === 'hp').base_stat,
                 moves: moveResults,
                 sprite: pokemonData.sprites.front_default,
-                _id: pokemonData.id
+                _id: pokemonData.id,
+                type: pokemonData.types
             }
         })
 
