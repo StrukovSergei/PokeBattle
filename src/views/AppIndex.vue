@@ -2,35 +2,37 @@
   <section>
     <app-filter></app-filter>
     <h1>app</h1>
-    <items-list :items="items" />
+    <pokemons-list :pokemons="pokemons" />
   </section>
   <RouterView />
 </template>
 
 <script>
-import itemsList from '../components/items-list.vue'
+import pokemonsList from '../components/pokemons-list.vue'
 import appFilter from './../components/app-filter.vue'
 
 export default {
-  name: 'items-app',
+  name: 'pokemons-app',
   components: {
-    itemsList,
+    pokemonsList,
     appFilter,
   },
   created() {
     // this.$store.dispatch({ type: 'loadItems' })
+    this.$store.dispatch('loadPokemons')
   },
 
 
-  
+
   computed: {
     items() {
-      const filterBy = this.$store.getters.getFilter
-      let items = this.$store.getters.getItems
-      console.log(filterBy)
-      if (!filterBy) return items
-      const regex = new RegExp(filterBy.txt, 'i')
-      return items.filter((item) => regex.test(item.content))
+      // const filterBy = this.$store.getters.getFilter
+      // let items = this.$store.getters.getItems
+      // console.log(filterBy)
+      // if (!filterBy) return items
+      // const regex = new RegExp(filterBy.txt, 'i')
+      // return items.filter((item) => regex.test(item.content))
+      return this.$store.getters.getPokemons
     },
   },
 }

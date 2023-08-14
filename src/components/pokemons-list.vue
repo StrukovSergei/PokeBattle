@@ -1,6 +1,6 @@
 <template>
-  <section class="item-list">
-    <item-preview v-for="item in items" :key="item._id" :item="item" />
+  <section class="items-list">
+    <pokemons-preview v-for="pokemon in pokemons" :key="pokemon._id" :pokemon="pokemon" />
   </section>
 </template>
 
@@ -9,10 +9,10 @@ import itemPreview from './item-preview.vue'
 export default {
   name: 'item-list',
   props: {
-    items: Array,
+    pokemons: Array,
   },
   components: {
-    itemPreview,
+    pokemonsPreview,
   },
 }
 </script>
