@@ -1,8 +1,13 @@
 .pokemon-preview {
+  background-color: antiquewhite;
+  min-width: 200px;
+  min-height: 300px;
+  border-radius: 8px;
 
   a {
     text-decoration: none;
     color: #333;
+
     &:hover {
       text-decoration: none;
     }
