@@ -15,7 +15,8 @@ async function query() {
             const pokemonApiUrl = `https://pokeapi.co/api/v2/pokemon/${id}/`
             const pokemonResponse = await Axios.get(pokemonApiUrl)
             const pokemonData = pokemonResponse.data
-
+            
+            const types = pokemonData.types.map(typeData => typeData.type.name)
             const moves = pokemonData.moves.slice(0, 4)
             const movePromises = moves.map(async (moveData) => {
                 const moveApiUrl = moveData.move.url
@@ -35,7 +36,7 @@ async function query() {
                 moves: moveResults,
                 sprite: pokemonData.sprites.front_default,
                 _id: pokemonData.id,
-                type: pokemonData.types
+                type: types
             }
         })
 
