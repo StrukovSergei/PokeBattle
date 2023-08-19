@@ -38,7 +38,7 @@ export default {
           title: 'About',
         },
         {
-          to: '/item',
+          to: '/game',
           title: 'App',
         },
         {

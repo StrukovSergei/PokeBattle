@@ -4,7 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import AppIndex from './../views/AppIndex.vue'
 import AppMap from './../views/AppMap.vue'
 import DashBoard from '../views/DashBoard.vue'
-import ItemDetails from './../views/ItemDetails.vue'
+// import ItemDetails from './../views/ItemDetails.vue'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -14,17 +14,9 @@ const router = createRouter({
       component: AppHome,
     },
     {
-      path: '/item',
+      path: '/game',
       name: 'app',
       component: AppIndex,
-      children: [
-        {
-          path: '/item/:_id',
-          name: 'details',
-          props: true,
-          component: ItemDetails,
-        },
-      ],
     },
 
     {
