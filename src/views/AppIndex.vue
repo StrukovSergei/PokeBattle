@@ -2,6 +2,7 @@
   <section>
     <!-- <app-filter></app-filter> -->
     <pokemons-list :pokemons="pokemons" />
+    <pokemons-list :pokemons="pokemons" />
   </section>
   <RouterView />
 </template>
