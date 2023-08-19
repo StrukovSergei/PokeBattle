@@ -1,44 +1,53 @@
 <template>
   <section>
-    <!-- <app-filter></app-filter> -->
-    <pokemons-pc-list :pokemons="pokemons" />
-    <pokemons-list :pokemons="pokemons" />
+    <pokemons-pc-list :pokemons="pcPokemons" />
+    <pokemons-list :pokemons="userPokemons" @choose-target="openDialog" />
+    <choose-target-dialog
+      :pcPokemons="pcPokemons"
+      :showDialog="dialogVisible"
+      @target-selected="handleTargetSelection"
+    />
   </section>
   <RouterView />
 </template>
 
 <script>
-import pokemonsList from '../components/pokemons-list.vue'
-import pokemonsPcList from '../components/pokemons-pc-list.vue'
-import appFilter from './../components/app-filter.vue'
+import pokemonsList from '../components/pokemons-list.vue';
+import pokemonsPcList from '../components/pokemons-pc-list.vue';
+import chooseTargetDialog from '../components/choose-target-dialog.vue';
 
 export default {
   name: 'pokemons-app',
   components: {
     pokemonsList,
     pokemonsPcList,
-    appFilter,
+    chooseTargetDialog,
+  },
+  data() {
+    return {
+      pcPokemons: [], // PC's Pokémon list
+      userPokemons: [], // User's Pokémon list
+      dialogVisible: false,
+      currentAttacker: null,
+      currentMove: null,
+    };
   },
   created() {
-    // this.$store.dispatch({ type: 'loadItems' })
-    this.$store.dispatch('loadPokemons')
+    this.$store.dispatch('loadPokemons'); // Load Pokémon data
+    // Initialize pcPokemons and userPokemons arrays
   },
-
-
-
-  computed: {
-    pokemons() {
-      // const filterBy = this.$store.getters.getFilter
-      // let items = this.$store.getters.getItems
-      // console.log(filterBy)
-      // if (!filterBy) return items
-      // const regex = new RegExp(filterBy.txt, 'i')
-      // return items.filter((item) => regex.test(item.content))
-      let pokemons = this.$store.getters.getPokemons
-      return pokemons
+  methods: {
+    openDialog(attackData) {
+      this.currentAttacker = attackData.attacker;
+      this.currentMove = attackData.move;
+      this.dialogVisible = true;
+    },
+    handleTargetSelection(selectedTarget) {
+      // Handle attack logic here using this.currentAttacker, this.currentMove, and selectedTarget
+      this.dialogVisible = false;
     },
   },
-}
+};
 </script>
 
 <style></style>
