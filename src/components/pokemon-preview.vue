@@ -6,6 +6,11 @@
     <div class="poke-hp demo-progress">
       <el-progress :text-inside="true" :stroke-width="20" :percentage="100" :status="getHpStatus" />
     </div>
+    <div class="poke-moves">
+      <button v-for="move in pokemon.moves" :key="move.name" @click="attack(move)">
+        {{ move.name }}
+      </button>
+    </div>
   </section>
 </template>
 
@@ -24,6 +29,12 @@ export default {
     },
     getHpStatus() {
       return 'success'
+    },
+  },
+  methods: {
+    attack(move) {
+      // Trigger the attack logic here
+      this.$emit('attack', { attacker: this.pokemon, move })
     },
   }
 }
