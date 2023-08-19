@@ -1,6 +1,6 @@
 <template>
   <section class="pokemons-list flex text-center">
-    <pokemon-preview
+    <pokemonPreview
       v-for="pokemon in pokemons"
       :key="pokemon._id"
       :pokemon="pokemon"
@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import pokemonPreview from './pokemon-preview.vue'
+
 export default {
   name: 'pokemon-list',
   props: {
@@ -21,6 +23,9 @@ export default {
       // Open a dialog to choose the target PC Pokémon
       this.$emit('choose-target', { attacker, move });
     },
+  },
+  components: {
+    pokemonPreview,
   },
 };
 </script>
