@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- <app-filter></app-filter> -->
-    <pokemons-list :pokemons="pokemons" />
+    <pokemons-pc-list :pokemons="pokemons" />
     <pokemons-list :pokemons="pokemons" />
   </section>
   <RouterView />
@@ -9,12 +9,14 @@
 
 <script>
 import pokemonsList from '../components/pokemons-list.vue'
+import pokemonsPcList from '../components/pokemons-pc-list.vue'
 import appFilter from './../components/app-filter.vue'
 
 export default {
   name: 'pokemons-app',
   components: {
     pokemonsList,
+    pokemonsPcList,
     appFilter,
   },
   created() {
