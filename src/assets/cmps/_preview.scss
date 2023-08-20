@@ -12,4 +12,22 @@
       text-decoration: none;
     }
   }
+
+  .poke-moves {
+
+    display: grid;
+    button{
+      margin-top: 6px;
+      border: 1px solid gray;
+      background-color: transparent;
+      max-width: 120px;
+      margin-left: 40px;
+      border-radius: 8px;
+      
+    }
+    button:hover{
+      background-color: rgb(240, 240, 240);
+    }
+
+  }
 }
