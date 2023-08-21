@@ -1,13 +1,13 @@
 <template>
   <div>
-    <dialog :show="showDialog">
+
       <h2>Select a target Pokémon:</h2>
       <ul>
         <li v-for="pokemon in pokemons" :key="pokemon.id">
           <button @click="selectTarget(pokemon)">{{ pokemon.name }}</button>
         </li>
       </ul>
-    </dialog>
+
   </div>
 </template>
   
