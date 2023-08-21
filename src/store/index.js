@@ -27,10 +27,13 @@ export const store = createStore({
       state.pokemons = pokemons
     },
     updatePokemonHp(state, { pokemonId, newHp }) {
-      const pokemonToUpdate = state.pokemons.find(pokemon => pokemon._id === pokemonId)
-      if (pokemonToUpdate) {
-        pokemonToUpdate.hp = newHp
-      }
+      const updatedPokemons = state.pokemons.map(pokemon => {
+        if (pokemon._id === pokemonId) {
+          return { ...pokemon, hp: newHp }
+        }
+        return pokemon
+      })
+      state.pokemons = updatedPokemons
     },
   },
   actions: {

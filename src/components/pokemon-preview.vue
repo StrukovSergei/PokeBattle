@@ -4,7 +4,7 @@
     <div class="poke-name">{{ pokemon.name }}</div>
     <div class="poke-class">{{ getTypes }}</div>
     <div class="poke-hp demo-progress">
-      <el-progress :text-inside="true" :stroke-width="20" :percentage="100" :status="getHpStatus" />
+      <el-progress :text-inside="true" :stroke-width="20" :percentage="getPrecentage" :status="getHpStatus" />
     </div>
     <div class="poke-moves ">
       <button v-for="move in pokemon.moves" :key="move.name" @click="attack(move)">
@@ -30,6 +30,9 @@ export default {
     getHpStatus() {
       return 'success'
     },
+    getPrecentage(){
+      return this.pokemon.hp
+    }
   },
   methods: {
     attack(move) {

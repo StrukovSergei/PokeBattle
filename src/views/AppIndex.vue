@@ -47,6 +47,7 @@ export default {
       const newHp = target.hp - this.move.power
       this.$store.commit('updatePokemonHp', { pokemonId: target._id, newHp })
       this.showTargetDialog = false
+      this.pcPokemons
     },
     closeTargetDialog() {
       this.showTargetDialog = false
