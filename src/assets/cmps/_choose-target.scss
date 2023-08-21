@@ -1,0 +1,36 @@
+.choose-target-modal {
+    text-align: center;
+    background-color: lightgrey;
+    width:300px;
+    height: 300px;
+    border-radius: 28px;
+
+    h2{
+        color: $clr2;
+
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    ul {
+        list-style-type: none;
+        li{
+            position: relative;
+            margin: 0;
+        }
+    }
+    button{
+        font-size: 16px;
+        font-weight: bolder;
+        color: $clr2;
+        height: 30px;
+        margin-top: 6px;
+        border: 1px solid gray;
+        background-color: transparent;
+        width: 260px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      button:hover{
+        background-color: rgb(240, 240, 240);
+      }
+}

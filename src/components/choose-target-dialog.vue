@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="choose-target-modal center">
 
-    <h2>Select a target Pokémon:</h2>
+    <h2>Pokémon to attack</h2>
     <ul>
       <li v-for="pokemon in pokemons" :key="pokemon.id">
         <button @click="selectTarget(pokemon)">{{ pokemon.name }}</button>
