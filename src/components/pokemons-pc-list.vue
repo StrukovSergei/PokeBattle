@@ -14,7 +14,6 @@ export default {
 
   methods: {
     userAttack(attackData) {
-     console.log("🚀 ~ file: pokemons-list.vue:17 ~ userAttack ~ attackData:", attackData)
      
       // Handle the user's attack logic here
       const { attacker, move } = attackData

@@ -20,7 +20,6 @@ export default {
   methods: {
     userAttack(attackData) {
       const { attacker, move } = attackData
-      // Open a dialog to choose the target PC Pokémon
       this.$emit('choose-target', { attacker, move })
     },
   },
