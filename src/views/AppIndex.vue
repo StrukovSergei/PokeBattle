@@ -44,7 +44,7 @@ export default {
       this.showTargetDialog = true
     },
     handleTargetSelection(target) {
-      const newHp = target.hp - this.move.power
+      const newHp = target.hp - (this.move.power * 0.5)
       this.$store.commit('updatePokemonHp', { pokemonId: target._id, newHp })
       this.showTargetDialog = false
       this.pcPokemons

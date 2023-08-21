@@ -24,7 +24,7 @@ async function query() {
                 const moveDetails = moveResponse.data
                 return {
                     name: moveDetails.name,
-                    power: moveDetails.power || 0
+                    power: moveDetails.power || 40
                 }
             })
 
