@@ -26,6 +26,12 @@ export const store = createStore({
     setPokemons(state, { pokemons }) {
       state.pokemons = pokemons
     },
+    updatePokemonHp(state, { pokemonId, newHp }) {
+      const pokemonToUpdate = state.pokemons.find(pokemon => pokemon._id === pokemonId)
+      if (pokemonToUpdate) {
+        pokemonToUpdate.hp = newHp
+      }
+    },
   },
   actions: {
     async loadPokemons({ commit, state, }) {

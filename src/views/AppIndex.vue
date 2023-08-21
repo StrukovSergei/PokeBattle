@@ -43,9 +43,7 @@ export default {
       this.showTargetDialog = true
     },
     handleTargetSelection(target) {
-      console.log("🚀 ~ file: AppIndex.vue:47 ~ handleTargetSelection ~ target.hp:", target.hp)
       target.hp -= this.move.power
-      console.log("🚀 ~ file: AppIndex.vue:47 ~ handleTargetSelection ~ target.hp:", target.hp)
       this.showTargetDialog = false
     },
     closeTargetDialog() {
