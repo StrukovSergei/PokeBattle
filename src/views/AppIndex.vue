@@ -4,7 +4,7 @@
 
     <pokemons-pc-list :pokemons="pcPokemons" />
     <pokemons-list :pokemons="userPokemons" @choose-target="openDialog" />
-    <choose-target-dialog v-if="showTargetDialog" @close="closeTargetDialog" @select-target="handleTargetSelection" :pokemons="pcPokemons" />
+    <choose-target-dialog v-if="showTargetDialog" @close="closeTargetDialog" @target-selected="handleTargetSelection" :pokemons="pcPokemons" />
   </section>
   <RouterView />
 </template>
@@ -38,14 +38,14 @@ export default {
   },
   methods: {
     openDialog(attackData) {
-      this.currentAttacker = attackData.attacker
-      this.currentMove = attackData.move
+      this.attacker = attackData.attacker
+      this.move = attackData.move
       this.showTargetDialog = true
     },
     handleTargetSelection(target) {
-      // Handle the selected target
-      // For example, you can emit an event to handle the attack logic
+      console.log("🚀 ~ file: AppIndex.vue:47 ~ handleTargetSelection ~ target.hp:", target.hp)
       target.hp -= this.move.power
+      console.log("🚀 ~ file: AppIndex.vue:47 ~ handleTargetSelection ~ target.hp:", target.hp)
       this.showTargetDialog = false
     },
     closeTargetDialog() {

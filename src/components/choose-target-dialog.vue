@@ -1,12 +1,12 @@
 <template>
   <div>
 
-      <h2>Select a target Pokémon:</h2>
-      <ul>
-        <li v-for="pokemon in pokemons" :key="pokemon.id">
-          <button @click="selectTarget(pokemon)">{{ pokemon.name }}</button>
-        </li>
-      </ul>
+    <h2>Select a target Pokémon:</h2>
+    <ul>
+      <li v-for="pokemon in pokemons" :key="pokemon.id">
+        <button @click="selectTarget(pokemon)">{{ pokemon.name }}</button>
+      </li>
+    </ul>
 
   </div>
 </template>
@@ -19,12 +19,11 @@ export default {
   },
   methods: {
     selectTarget(pokemon) {
+      
       // Emit the selected target to the parent component
-      this.$emit('target-selected', pokemon);
+      this.$emit('target-selected', pokemon)
     },
   },
-  created(){
-  console.log(this.pokemons)
+
 }
-  }
 </script>
