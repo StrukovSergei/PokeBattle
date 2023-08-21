@@ -5,7 +5,7 @@
     <div class="poke-class">{{ getTypes }}</div>
     <div class="poke-hp">
       <div class="progress-bar-container">
-        <div class="progress-bar" :style="{ width: getHpPercentage + '%', backgroundColor: getHpColor }"></div>
+        <div class="progress-bar" :style="getProgressBarStyle"></div>
       </div>
     </div>
     <div class="poke-moves ">
@@ -34,9 +34,7 @@ export default {
       return (this.pokemon.hp / this.pokemon.maxHp) * 100
     },
     getHpColor() {
-      if (this.pokemon.hp <= 0) {
-        return 'red'
-      } else if (this.getHpPercentage <= 30) {
+      if (this.getHpPercentage <= 30) {
         return 'orange'
       } else {
         return '#66bb6a'
@@ -44,6 +42,20 @@ export default {
     },
     isDead() {
       return this.pokemon.hp <= 0
+    },
+    getProgressBarStyle() {
+      if (this.isDead) {
+        return {
+          width: '100%',
+          height: '4px',
+          backgroundColor: 'red'
+        }
+      } else {
+        return {
+          width: this.getHpPercentage + '%',
+          backgroundColor: this.getHpColor
+        }
+      }
     },
   },
   methods: {
