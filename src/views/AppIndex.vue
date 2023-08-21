@@ -4,7 +4,8 @@
 
     <pokemons-pc-list :pokemons="pcPokemons" />
     <pokemons-list :pokemons="userPokemons" @choose-target="openDialog" />
-    <choose-target-dialog v-if="showTargetDialog" @close="closeTargetDialog" @target-selected="handleTargetSelection" :pokemons="pcPokemons" />
+    <choose-target-dialog v-if="showTargetDialog" @close="closeTargetDialog" @target-selected="handleTargetSelection"
+      :pokemons="pcPokemons" />
   </section>
   <RouterView />
 </template>
@@ -43,7 +44,8 @@ export default {
       this.showTargetDialog = true
     },
     handleTargetSelection(target) {
-      target.hp -= this.move.power
+      const newHp = target.hp - this.move.power
+      this.$store.commit('updatePokemonHp', { pokemonId: target._id, newHp })
       this.showTargetDialog = false
     },
     closeTargetDialog() {
