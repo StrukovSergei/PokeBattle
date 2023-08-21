@@ -1,11 +1,11 @@
 <template>
-  <section class="pokemon-preview">
+  <section :class="['pokemon-preview', { 'dead': isDead }]">
     <div class="poke-sprite"><img :src="getImg" alt=""></div>
     <div class="poke-name">{{ pokemon.name }}</div>
     <div class="poke-class">{{ getTypes }}</div>
     <div class="poke-hp">
       <div class="progress-bar-container">
-        <div class="progress-bar" :style="{ width: getHpPercentage + '%' }"></div>
+        <div class="progress-bar" :style="{ width: getHpPercentage + '%', backgroundColor: getHpColor }"></div>
       </div>
     </div>
     <div class="poke-moves ">
@@ -31,8 +31,19 @@ export default {
     },
 
     getHpPercentage() {
-      console.log(this.pokemon.hp)
       return (this.pokemon.hp / this.pokemon.maxHp) * 100
+    },
+    getHpColor() {
+      if (this.pokemon.hp <= 0) {
+        return 'red'
+      } else if (this.getHpPercentage <= 30) {
+        return 'orange'
+      } else {
+        return '#66bb6a'
+      }
+    },
+    isDead() {
+      return this.pokemon.hp <= 0
     },
   },
   methods: {
@@ -44,17 +55,3 @@ export default {
 }
 </script>
 
-<style>
-.progress-bar-container {
-  background-color: #ccc;
-  height: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #66bb6a;
-  transition: width 0.3s;
-}
-</style>
