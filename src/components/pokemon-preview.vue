@@ -3,8 +3,10 @@
     <div class="poke-sprite"><img :src="getImg" alt=""></div>
     <div class="poke-name">{{ pokemon.name }}</div>
     <div class="poke-class">{{ getTypes }}</div>
-    <div class="poke-hp demo-progress">
-      <el-progress :text-inside="true" :stroke-width="20" :percentage="getPrecentage" :status="getHpStatus" />
+    <div class="poke-hp">
+      <div class="progress-bar-container">
+        <div class="progress-bar" :style="{ width: getHpPercentage + '%' }"></div>
+      </div>
     </div>
     <div class="poke-moves ">
       <button v-for="move in pokemon.moves" :key="move.name" @click="attack(move)">
@@ -27,12 +29,11 @@ export default {
     getTypes() {
       return this.pokemon.type.join(', ')
     },
-    getHpStatus() {
-      return 'success'
+
+    getHpPercentage() {
+      console.log(this.pokemon.hp)
+      return (this.pokemon.hp / this.pokemon.maxHp) * 100
     },
-    getPrecentage(){
-      return this.pokemon.hp
-    }
   },
   methods: {
     attack(move) {
@@ -44,8 +45,16 @@ export default {
 </script>
 
 <style>
-.demo-progress .el-progress--line {
-  margin-bottom: 15px;
-  width: 150px;
+.progress-bar-container {
+  background-color: #ccc;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #66bb6a;
+  transition: width 0.3s;
 }
 </style>
