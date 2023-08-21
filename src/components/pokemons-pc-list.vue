@@ -1,5 +1,6 @@
 <template>
   <section class="pokemons-list flex text-center">
+    <h1>Opponent pokemons</h1>
     <pokemon-preview v-for="pokemon in pokemons" :key="pokemon._id" :pokemon="pokemon" @attack="userAttack" />
   </section>
 </template>

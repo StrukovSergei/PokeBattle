@@ -1,11 +1,15 @@
 <template>
   <section class="pokemons-list flex text-center">
+    __________________________________________________________________________________________________________
+
     <pokemonPreview
       v-for="pokemon in pokemons"
       :key="pokemon._id"
       :pokemon="pokemon"
       @attack="userAttack"
     />
+    <h1>Your pokemons</h1>
+
   </section>
 </template>
 
