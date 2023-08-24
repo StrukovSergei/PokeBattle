@@ -1,4 +1,4 @@
-const svgIcons = {
+const svgs = {
   times: `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m6.3 18.9-1.15-1.2 5.675-5.7L5.15 6.25l1.15-1.2 5.725 5.75L17.7 5.05l1.15 1.2L13.175 12l5.675 5.7-1.15 1.2-5.675-5.75Z"/></svg>`,
   search: `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m19.7 20.8-6.3-6.3q-.75.6-1.838.938-1.087.337-2.087.337-2.675 0-4.512-1.837Q3.125 12.1 3.125 9.45q0-2.65 1.838-4.487Q6.8 3.125 9.45 3.125q2.65 0 4.5 1.838Q15.8 6.8 15.8 9.45q0 1.075-.337 2.1-.338 1.025-.938 1.75l6.35 6.35ZM9.475 14.125q1.975 0 3.325-1.338 1.35-1.337 1.35-3.337T12.8 6.112q-1.35-1.337-3.325-1.337-2 0-3.35 1.337-1.35 1.338-1.35 3.338t1.35 3.337q1.35 1.338 3.35 1.338Z"/></svg>`,
   home: `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M6.05 19h3.075v-6.2h5.75V19h3.075v-8.95L12 5.55l-5.95 4.5ZM4.4 20.65V9.225L12 3.5l7.6 5.725V20.65h-6.375v-6.2h-2.45v6.2Zm7.6-8.375Z"/></svg>`,
@@ -32,7 +32,7 @@ const svgIcons = {
 }
 
 function getSvg(icoName) {
-  return svgIcons[icoName]
+  return svgs[icoName]
 }
 
 export const svgService = { getSvg }
