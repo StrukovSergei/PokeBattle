@@ -45,9 +45,11 @@ p {
 a {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 ::-webkit-scrollbar {
   width: 0.7em;
 }
@@ -60,8 +62,10 @@ a:hover {
   background-color: $clr2;
   outline: 1px solid $clr2;
 }
+
 button {
   cursor: pointer;
+
   &.icon {
     background: none;
     border: none;
@@ -69,31 +73,46 @@ button {
 }
 
 [data-title] {
+  position: relative;
+}
+
+[data-title]:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  font-size: 12px;
+  background: #F10D0D;
+  color: #fff;
+  padding: 0.2em 0.3em;
+  border-radius: 0.2em;
+  text-transform: capitalize;
+  bottom: -25px;
+  width: max-content;
+  left: 12px;
+}
+
+
+.type-svg {
+
+  i {
+    display: block;
+height: 40px;
+max-width: 40px;
+border-radius: 50%;
+    svg {
+      height: 30px;
+      max-width: 30px;
+
       position: relative;
+      top: 5px;
+      right: -5px;
     }
+  }
 
-    [data-title]:hover::after {
-      content: attr(data-title);
-      position: absolute;
-      font-size: 12px;
-      background: #F10D0D;
-      color: #fff;
-      padding: 0.2em 0.3em;
-      border-radius: 0.2em;
-      text-transform: capitalize;
-      bottom: -25px;
-      width: max-content;
-      left: 12px;
-    }
+}
 
+.fighting {
 
-    .type-svg{
-      i{
-        height: 50px;
-        svg{
-          height: 50px;
+  background-color: #D3425F;
 
-        }
-      }
-      height: 50px;
-    }
+}
+
