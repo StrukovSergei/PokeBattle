@@ -5,7 +5,7 @@
     <!-- <img :src="new URL(item.imgUrl, import.meta.url).href" alt=""> -->
     <!-- <h2>{{ getMsg }}</h2>
     <pre>{{ getPokemons }}</pre> -->
-    <RouterLink to="/game">PLAY!</RouterLink>
+    <RouterLink class="play-btn" to="/game">PLAY!</RouterLink>
 
   </section>
 </template>
