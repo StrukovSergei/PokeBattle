@@ -63,6 +63,7 @@ export default {
       // Trigger the attack logic here
       this.$emit('attack', { attacker: this.pokemon, move })
     },
+
   }
 }
 </script>
