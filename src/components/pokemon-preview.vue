@@ -2,7 +2,12 @@
   <section :class="['pokemon-preview', { 'dead': isDead }]">
     <div class="poke-sprite"><img :src="getImg" alt=""></div>
     <div class="poke-name">{{ pokemon.name }}</div>
-    <div class="poke-class">{{ getTypes }}</div>
+    <div class="poke-class">
+      <div v-for="type in pokemon.type" :key="type">
+        <i v-html="$svg(type)"></i>
+        {{ type }}
+      </div>
+    </div>
     <div class="poke-hp">
       <div class="progress-bar-container">
         <div class="progress-bar" :style="getProgressBarStyle"></div>
@@ -25,9 +30,6 @@ export default {
   computed: {
     getImg() {
       return this.pokemon.sprite
-    },
-    getTypes() {
-      return this.pokemon.type.join(', ')
     },
 
     getHpPercentage() {
