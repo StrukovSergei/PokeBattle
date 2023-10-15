@@ -3,9 +3,9 @@
     <div class="poke-sprite"><img :src="getImg" alt=""></div>
     <div class="poke-name">{{ pokemon.name }}</div>
     <div class="poke-class">
-      <div v-for="type in pokemon.type" :key="type">
+      <div v-for="type in pokemon.type" :key="type" :title=type>
         <i v-html="$svg(type)"></i>
-        {{ type }}
+
       </div>
     </div>
     <div class="poke-hp">

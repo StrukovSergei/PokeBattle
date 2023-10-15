@@ -16,19 +16,41 @@
   .poke-moves {
 
     display: grid;
-    button{
+
+    button {
       margin-top: 6px;
       border: 1px solid gray;
       background-color: transparent;
       max-width: 120px;
       margin-left: 40px;
       border-radius: 8px;
-      
+
     }
-    button:hover{
+
+    button:hover {
       background-color: rgb(240, 240, 240);
     }
 
+  }
+
+  .poke-class {
+    div {
+      i {
+        display: block;
+        height: 40px;
+        max-width: 40px;
+        border-radius: 50%;
+
+        svg {
+          height: 30px;
+          max-width: 30px;
+
+          position: relative;
+          top: 5px;
+          right: -5px;
+        }
+      }
+    }
   }
 }
 
